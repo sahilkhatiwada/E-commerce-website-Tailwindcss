@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: white;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+}
+
+li:hover::before {
+  position: absolute;
+  content: " ";
+  height: 4px;
+  width: 100%;
+  background: #2a68ff;
+  bottom: -10px;
+  color: #2a68ff;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.card {
+  background: #dbd4d4;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .menu {
+    gap: 16px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .menu {
+    gap: 24px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .menu {
+    gap: 32px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .menu {
+    gap: 40px;
+  }
+}
+#menuBtn {
+  /* Change this to your preferred color */
+  color: #000d12;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+}
+
+#menuBtn:hover {
+  /* Change this to your preferred color */
+  color: rgb(17, 55, 203);
+}
