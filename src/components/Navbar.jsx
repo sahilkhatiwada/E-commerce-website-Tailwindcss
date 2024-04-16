@@ -1,83 +1,51 @@
-import React, { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
+function NavScrollExample() {
   return (
-    <div className="navBar flex flex-wrap justify-between items-center p-6 md:p-12 sticky top-0">
-      <div className="logoDiv w-full md:w-auto">
-        <h1 className="logo text-4xl text-black cursor-pointer font-bold">
-          <strong className="text-blue-600 cursor-pointer">Nepal</strong>Mart
-        </h1>
-      </div>
-      <button
-        id="menuBtn"
-        className="md:hidden block text-gray-600 hover:text-blue-600 text-2xl transition duration-200 lg:hidden "
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? <FiX /> : <FiMenu />}
-      </button>
-      <div
-        className={`nav-items ${
-          isOpen ? "block" : "hidden"
-        } md:block w-full md:w-auto `}
-      >
-        <ul
-          id="menu"
-          className="menu flex flex-col md:flex-row flex-1 items-center md:justify-center gap-5"
-        >
-          <li
-            className="menuList text-gray-600 hover:text-blue-600 text-2xl transition duration-200"
-            onClick={() => navigate("/")}
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto ml-auto my-2 my-lg-0"
+            style={{ maxHeight: "100px" }}
+            navbarScroll
           >
-            Home
-          </li>
-          <li
-            className="menuList text-gray-600 hover:text-blue-600 text-2xl transition duration-200"
-            onClick={() => navigate("/about")}
-          >
-            About
-          </li>
-          <li
-            className="menuList text-gray-600 hover:text-blue-600 text-2xl transition duration-200"
-            onClick={() => navigate("/contact")}
-          >
-            Contact
-          </li>
-          <li
-            className="menuList text-gray-600 hover:text-blue-600 text-2xl transition duration-200"
-            onClick={() => navigate("/cart")}
-          >
-            Cart
-          </li>
-        </ul>
-      </div>
-      <div className="search w-full md:w-auto mt-4 md:mt-0">
-        <input
-          type="text"
-          placeholder="Search"
-          className="bg-indigo-300 p-2 rounded text-black ml-4 transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-600"
-        />
-        <button className="menuList text-white bg-indigo-600 hover:text-white hover:bg-indigo-400 rounded-2xl ml-3 p-2 transition duration-200">
-          Search
-        </button>
-        <button
-          className="menuList text-white bg-indigo-600 hover:text-white hover:bg-indigo-400 rounded-2xl ml-3 p-2 transition duration-200"
-          onClick={() => navigate("/login")}
-        >
-          Log In
-        </button>
-        <button
-          className="menuList text-white bg-indigo-600 hover:text-white hover:bg-indigo-400 rounded-2xl ml-3 p-2 transition duration-200"
-          onClick={() => navigate("/signUp")}
-        >
-          Sign Up
-        </button>
-      </div>
-    </div>
+            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="#action2">Link</Nav.Link>
+            <NavDropdown title="Link" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action5">
+                Something else here
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="#" disabled>
+              Link
+            </Nav.Link>
+          </Nav>
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-};
+}
 
-export default Navbar;
+export default NavScrollExample;
